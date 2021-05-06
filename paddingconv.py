@@ -1,49 +1,48 @@
 
-import numpy as np #se importa la libreria numpy
+import numpy as np 
 
-def conv_helper(original, kernel):
+def conv_helper(fragment, kernel):
     
-    o_row, o_col = original.shape #se crea la matriz original y se redimensiona el arrey
+    f_row, f_col = fragment.shape
     result = 0
-    #se crea un ciclo for para irnos moviendo por la matriz
-    for row in range(o_row): #se va moviendo por las fila
-        for col in range(o_col): #se va moviendo por las columnas
-            result += original[row,col] *  kernel[row,col]
-            #se hace un producto punto entre la matriz original y el filtro (kernel)
+    for row in range(f_row):
+        for col in range(f_col):
+            result += fragment[row,col] *  kernel[row,col]
     return result
 
 
-#caso prueba obtenido de "examples convolution.xlsx"
-original = np.array ([[10,4,50,30,20],
-                      [80,0,0,0,6],
-                      [0,0,1,16,17],
-                      [0,1,0,7,23],
-                      [1,0,6,0,4]]) #datos de la matriz original 
+original = np.array ([[1,2,3,4,5,6],
+              [7,8,9,10,11,12],
+              [0,0,1,16,17,18],
+              [0,1,0,7,23,24],
+              [1,7,6,5,4,3]])
+  
 
-kernel = np.array ([[1,0,1],
-                    [0,0,0],
-                    [1,0,3]]) #datos del filter (kernel)
+kernel = np.array ([[1,1,1],
+              [0,0,0],
+              [2,10,3]]) 
 
-original_row, original_col = original.shape #se redimesiona el arrey
-kernel_row, kernel_col = kernel.shape #se redimensiona el arrey
 
-#se crea una matriz "convolution" inicializada en 0 
-convolution = np.zeros((convX,convY))
+original_row, original_col = original.shape 
+kernel_row, kernel_col = kernel.shape
 
-#se calcula la altura y la longitud
-pad_height=int((kernel_row-1)/2)
-path_width=int((kernel_-1)/2)
+#se crea una matriz iicializada en ceros pero con las dimensiones de la matriz original
+output = np.zeros(original.shape)
 
-padded_image=np.zeros((original_row+(2+pad_height), original_col+(2*pad_width)))
+#se hacen calculos para obtener los tamaños de la altura y longitus de la matriz paddling
+pad_height = int((kernel_row - 1) / 2)
+pad_width = int((kernel_col - 1) / 2)
 
-padded_image[pad_height:padded_original.shape[]-padheight,pad_width:padded_image.shape[1]-pad_width]=image
+padded_original = np.zeros((original_row + (2 * pad_height), original_col + (2 * pad_width)))
 
-#se crea un ciclo for para poder ir guardando los datos en la matriz convolution
-for row in range(convX):
-    for col in range(convY):
-            convolution[row, col] = conv_helper(
+padded_original[pad_height:padded_original.shape[0] - pad_height, pad_width:padded_original.shape[1] - pad_width] = original
+
+#se van salvando en la nueva matriz los datos de paddling 
+for row in range(original_row):
+    for col in range(original_col):
+            output[row, col] = conv_helper(
                                 original[row:row + kernel_row, 
                                 col:col + kernel_col],kernel)
 
 
-print(convolution)
+print(output)
