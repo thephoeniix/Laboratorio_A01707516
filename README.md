@@ -7,7 +7,9 @@ Use la ultima versión de Python:
 # Pasos para correr el programa 
  
 1.  Clone the repo
+
 	    git clone https://github.com/A01552594/Repo_Equipo6.git
+	    
 2.  Install packages
     
 	     import numpy as np
