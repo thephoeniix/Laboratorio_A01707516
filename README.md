@@ -17,4 +17,8 @@ Use la ultima versión de Python:
 3.  Corre el programa
 
 #  Casos Prueba
-![Imagen](https://user-images.githubusercontent.com/73914621/117494343-d0711280-af39-11eb-8a8d-5fb7a47e23c1.png)
+![terminal](https://user-images.githubusercontent.com/73914621/117495075-ca2f6600-af3a-11eb-8bfd-3eb179a889ed.png)
+
+
+# Video Youtube 
+[![youtube](https://user-images.githubusercontent.com/73914621/117495025-bf74d100-af3a-11eb-8dcb-319ffcf47199.png)](https://www.youtube.com/watch?v=LtoDRVU2jCs)
